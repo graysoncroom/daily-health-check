@@ -1,13 +1,16 @@
 # daily-health-check
 A simple python script made in an attempt to automate an annoying daily COVID-19 survey.
 
+## Dependencies
 This script uses a library called splinter to run and manage a browser (typically headless) via python.
 
 To install splinter, make sure you have pip and run: `pip install splinter`
 
 Note that this may require admin level privileges as it installs the library globally.
 
-In this same directory you must have two files:
+## Required Data Files
+
+In the same directory as the script, you must have the following two files:
 
 1) utd_email_and_pass.txt
 
