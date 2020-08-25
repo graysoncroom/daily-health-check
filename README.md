@@ -27,6 +27,8 @@ In this same directory you must have two files:
  3) You can request a collection of 10 authentication codes to be sent to your phone via text message. 
     You then take note of this collection and use the codes once each time you want to log in to your email.
     
+ Note that each code should be 7 digits long.
+    
  ## How does this script use these auth codes?
  
  All you have to do is follow the rules stated above for the authentication_codes.txt file using the codes given to you.
