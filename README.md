@@ -1,12 +1,32 @@
 # daily-health-check
 A simple python script made in an attempt to automate an annoying daily COVID-19 survey.
 
+It is not my intention to violate any UTD guidelines, nor am I aware if I am doing so. 
+The only intention is to automate the process of completing the daily health check every day 
+with a much higher accuracy brought forth by the automation.
+
+I do not accept any responsibility for any other person other than myself utilizing this script.
+
+I recommend that this script should be used for educational purposes only.
+
 ## Dependencies
 This script uses a library called splinter to run and manage a browser (typically headless) via python.
+
+This script also uses the chromedriver which you can find here: https://chromedriver.chromium.org/
 
 To install splinter, make sure you have pip and run: `pip install splinter`
 
 Note that this may require admin level privileges as it installs the library globally.
+
+To install chromedriver, go to the link above and download the correct version for your system.
+
+This will download a compressed file, extract the chromedriver.exe file and place it somewhere in your path.
+
+## Program arguments
+
+You must run this script with either, "Yes"/"yes" or "No"/"no" which correspond to answers of the question: 
+
+Will you be on campus today?
 
 ## Required Data Files
 
