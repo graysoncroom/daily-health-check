@@ -67,3 +67,9 @@ In the same directory as the script, you must have the following two files:
  ## Issues/Bugs
  
  For whatever reason, the last authentication code is never able to be used. I need to figure out why at some point.
+ 
+ ## Other Notes
+ 
+ If you want the browser this script controls to run in headless mode, swap out `with Browser('chrome', headless=False) as browser:` for `with Browser('chrome', headless=True) as browser:`.
+ 
+ I'll make this a script option at some point.
