@@ -63,3 +63,7 @@ In the same directory as the script, you must have the following two files:
  All you have to do is follow the rules stated above for the authentication_codes.txt file using the codes given to you.
  
  Note that you must obtain these codes manually and put them in that file to be used by the script.
+ 
+ ## Issues/Bugs
+ 
+ For whatever reason, the last authentication code is never able to be used. I need to figure out why at some point.
