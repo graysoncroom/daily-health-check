@@ -5,6 +5,8 @@ from splinter import Browser
 from time import sleep
 import sys
 
+sleep_in_between_page_time_seconds = 4 # increase this if you have a slow internet connection
+
 # In this same directory you must have two files:
 #    1) utd_email_and_pass.txt
 #        * your email should be written on the first line
@@ -50,7 +52,7 @@ def main(argv):
         
         browser.visit('https://outlook.office.com/mail/inbox/')
         
-        sleep(3)
+        sleep(sleep_in_between_page_time_seconds)
         
         email_input = browser.find_by_id('i0116').first
         email_input.fill(email)
@@ -58,7 +60,7 @@ def main(argv):
         next_button = browser.find_by_id('idSIButton9').first
         next_button.click()
         
-        sleep(3)
+        sleep(sleep_in_between_page_time_seconds)
         
         password_input = browser.find_by_id('i0118').first
         password_input.fill(password)
@@ -66,7 +68,7 @@ def main(argv):
         sign_in_button = browser.find_by_id('idSIButton9').first
         sign_in_button.click()
         
-        sleep(3)
+        sleep(sleep_in_between_page_time_seconds)
         
         enter_auth_code_button = browser.find_by_id('passcode').first
         enter_auth_code_button.click()
@@ -74,7 +76,44 @@ def main(argv):
         auth_input = browser.find_by_css('input[class="passcode-input"]').first
         auth_input.fill(get_auth_code())
         
-        sleep(60*5)
+        sleep(sleep_in_between_page_time_seconds)
+        
+        daily_health_check = browser.find_by_text('Daily Health Check <redcap@utdallas.edu>').first
+        daily_health_check.click()
+        
+        sleep(sleep_in_between_page_time_seconds)
+        
+        survey_link_string = browser.links.find_by_text('Daily Health Check')[0]['href']
+        browser.visit(survey_link_string)
+        
+        if len(browser.find_by_text('Close survey') == 0:
+            print('You have already completed the survey today. Make sure to do it again tomorrow!')
+            sys.exit()
+        
+        sleep(sleep_in_between_page_time_seconds)
+        
+        choice_input_divs = browser.find_by_css('div[class="choicevert"')
+        
+        choice_yes = choice_input_divs[0].find_by_css('input')
+        choice_no = choice_input_divs[1].find_by_css('input')
+        
+        if argv[0] == 'yes' or argv[0] == 'Yes':
+            choice_yes.click()
+        elif argv[0] == 'no' or argv[0] == 'No':
+            choice_no.click()
+        else:
+            print('An answer to the survey question "Will you be on campus today?" was not found. Please try again with an argument of either "yes" or "no"')
+            sys.exit()
+        
+        submit_button = browser.find_by_text('Submit')[0]
+        submit_button.click()
+        
+        sleep(sleep_in_between_page_time_seconds)
+        
+        close_survey_button = browser.find_by_text('Close survey')[0]
+        close_survey_button.click()
+        
+        sleep(10)
     
 if __name__ == '__main__':
     main(sys.argv[1:])
