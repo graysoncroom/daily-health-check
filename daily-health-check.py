@@ -86,7 +86,7 @@ def main(argv):
         survey_link_string = browser.links.find_by_text('Daily Health Check')[0]['href']
         browser.visit(survey_link_string)
         
-        if len(browser.find_by_text('Close survey')) == 0:
+        if len(browser.find_by_text('Close survey')) != 0:
             print('You have already completed the survey today. Make sure to do it again tomorrow!')
             sys.exit()
         
